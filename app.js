@@ -28,8 +28,8 @@ app.post('/api/products', bodyParser.json(), productController.addNewProduct);
 
 app.listen(port, (err) => {
     if (err) {
-        return console.log('Error: ', err)
+        return console.log('Error: ', err);
     }
-    console.log(`Server is listening on ${port}`)
+    console.log(`Server is listening on ${port}`);
 });
 

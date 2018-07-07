@@ -10,6 +10,6 @@ module.exports = {
             }
         }).then(reviews => {
             response.send(reviews);
-        })
+        });
     }
-}
+};

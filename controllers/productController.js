@@ -23,34 +23,34 @@ module.exports = {
                     createdAt: new Date(),
                     updatedAt: new Date()
                 })
-                    .then(function(product){
+                    .then(function(){
                         createdCount++;
                         if (createdCount === importedCount){
                             console.log(`${createdCount} records created in DB`);
-                            response.status(200).send({result: `${createdCount} records created in DB`})
+                            response.status(200).send({result: `${createdCount} records created in DB`});
                         }
                     }).catch(function (err) {
                         console.log(err);
                         response.status(400).send({error: err});
 
                     }
-                )
+                    );
             }).on('end', function () {
                 console.log(`Import done! ${importedCount} records imported from file`);
             }).on('error', function (err) {
                 console.log(err);
-                response.status(400).send({error: err})
+                response.status(400).send({error: err});
             });
     },
     getAllProducts: (request, response) => {
         Product.findAll().then(products => {
             response.send(products);
-        })
+        });
     },
     getProductById: (request, response) => {
         Product.findById(request.params.id).then(products => {
             response.send(products);
-        })
+        });
     },
     addNewProduct: (request, response) => {
         console.log(JSON.stringify(request.body));
@@ -67,7 +67,7 @@ module.exports = {
             .then(function(product){
                 response.send(product);
             }).catch(function (err) {
-            response.send(err);
-        })
+                response.send(err);
+            });
     }
-}
+};
